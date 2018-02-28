@@ -34,10 +34,10 @@ client.on('message', msg => {
 	// Bot Say Command
 	if(commandIs("say", msg)){
 		if(hasRole(msg.member, "Control Bot")){
-			let msg = "";
+			let saymsg = "";
 			for(i = 1; i < args.length; i++){
-				msg += args[i] + " "
-				if(i >= args.length) msg.channel.sendMessage(msg);		
+				saymsg += args[i] + " "
+				if(i >= args.length) msg.channel.sendMessage(saymsg);		
 			}
 		};
 	};
