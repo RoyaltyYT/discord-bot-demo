@@ -1,4 +1,3 @@
-const fkill = require('fkill');
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
@@ -74,4 +73,4 @@ client.on('message', msg => {
 	}
 });
 
-client.login("NDE4MTMzMjkwMTYwMDk1MjQ2.DXhUzw.7poAuMdMrZ13fmSWOlyr9zBFq-0");
+client.login("NDE4MTMzMjkwMTYwMDk1MjQ2.DXhWwA.gOACY7HNYz-9gMLZX_eHxNTxTbc");
