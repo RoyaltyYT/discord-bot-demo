@@ -37,7 +37,7 @@ client.on('message', msg => {
 			let saymsg = "";
 			for(i = 1; i < args.length; i++){
 				saymsg += args[i] + " "
-				if(i >= args.length) msg.channel.sendMessage(saymsg);		
+				if(saymsg.length = args.length) msg.channel.sendMessage(saymsg);		
 			}
 		};
 	};
