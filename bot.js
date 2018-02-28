@@ -2,6 +2,8 @@ const fkill = require('fkill');
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
+const BotRole = "Control Bot"
+
 function commandIs(str, msg){
 	return msg.content.toLowerCase().startsWith("." + str);
 }
@@ -43,7 +45,7 @@ client.on('message', msg => {
 
 	// Bot Say Command
 	if(commandIs("say", msg)){
-		if(hasRole(msg.member, "Leader")){
+		if(hasRole(msg.member, BotRole)){
 			for(i = 1; i < args.length; i++){
 				msg.channel.sendMessage(args[i]);		
 			}
@@ -52,7 +54,7 @@ client.on('message', msg => {
 	
 	// Status Changer
 	if(commandIs("status", msg)){
-		if(hasRole(msg.member, "Leader")){
+		if(hasRole(msg.member, BotRole)){
 			if(args[1] === "online" || "dnd" || "idle" || "invisible"){
 				status = args[1];
 				client.user.setStatus(status);
@@ -63,13 +65,13 @@ client.on('message', msg => {
 	}
 
 	if(commandIs("game", msg)){
-		if(hasRole(msg.member, "Leader")){
+		if(hasRole(msg.member, BotRole)){
 			client.user.setGame(args[1]);
 		}
 	}
 
 	if(commandIs("kick", msg)){
-		if(hasRole(msg.member, "Leader")){
+		if(hasRole(msg.member, BotRole)){
 			if(!msg.guild.member(msg.mentions.users.first()).kickable){
 				return msg.reply("You cant kick that user");
 			} else {
@@ -83,4 +85,4 @@ client.on('message', msg => {
 	}
 });
 
-client.login('NDE4MTMzMjkwMTYwMDk1MjQ2.DXhR5Q.0zSfm6Le1l8TiIuBSh15NCldyDk');
+client.login(process.env.BOT_TOKEN);
