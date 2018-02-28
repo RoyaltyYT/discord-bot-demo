@@ -1,0 +1,18 @@
+{
+  "name": "discord-bot12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "asd"
+  ],
+  "author": "aNTON",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.0.0",
+    "fkill": "^4.1.0"
+  }
+}
