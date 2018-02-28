@@ -30,17 +30,6 @@ client.on('ready', () => {
 client.on('message', msg => {
 	var args = msg.content.split(/[ ]+/);
 	var status = 'online';
-
-	// Bot Say Command
-	if(commandIs("say", msg)){
-		if(hasRole(msg.member, "Control Bot")){
-			let saymsg = "";
-			for(i = 1; i < args.length; i++){
-				saymsg += args[i] + " "
-				if(saymsg.split(/[ ]+/).length = args.length-1) msg.channel.sendMessage(saymsg);		
-			}
-		};
-	};
 	
 	// Status Changer
 	if(commandIs("status", msg)){
