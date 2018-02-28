@@ -2,8 +2,6 @@ const fkill = require('fkill');
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-const BotRole = "Control Bot"
-
 function commandIs(str, msg){
 	return msg.content.toLowerCase().startsWith("." + str);
 }
@@ -34,18 +32,9 @@ client.on('message', msg => {
 	var args = msg.content.split(/[ ]+/);
 	var status = 'online';
 
-	// Bot Disconnect Command
-	if(commandIs("disconnect", msg)){
-		msg.channel.sendMessage('Bot successfully disconnected.');
-		client.user.setStatus("invisible");
-		setTimeout(function(){	
-			fkill('cmd.exe')
-		}, 1000);
-	}
-
 	// Bot Say Command
 	if(commandIs("say", msg)){
-		if(hasRole(msg.member, BotRole)){
+		if(hasRole(msg.member, "Control Bot")){
 			for(i = 1; i < args.length; i++){
 				msg.channel.sendMessage(args[i]);		
 			}
@@ -54,7 +43,7 @@ client.on('message', msg => {
 	
 	// Status Changer
 	if(commandIs("status", msg)){
-		if(hasRole(msg.member, BotRole)){
+		if(hasRole(msg.member, "Control Bot")){
 			if(args[1] === "online" || "dnd" || "idle" || "invisible"){
 				status = args[1];
 				client.user.setStatus(status);
@@ -65,13 +54,13 @@ client.on('message', msg => {
 	}
 
 	if(commandIs("game", msg)){
-		if(hasRole(msg.member, BotRole)){
+		if(hasRole(msg.member, "Control Bot")){
 			client.user.setGame(args[1]);
 		}
 	}
 
 	if(commandIs("kick", msg)){
-		if(hasRole(msg.member, BotRole)){
+		if(hasRole(msg.member, "Control Bot")){
 			if(!msg.guild.member(msg.mentions.users.first()).kickable){
 				return msg.reply("You cant kick that user");
 			} else {
@@ -85,4 +74,4 @@ client.on('message', msg => {
 	}
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login("NDE4MTMzMjkwMTYwMDk1MjQ2.DXhUzw.7poAuMdMrZ13fmSWOlyr9zBFq-0");
